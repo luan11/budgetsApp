@@ -1,7 +1,7 @@
 .bud-header{
 	position: relative;
 	width: 100%;
-	padding: 10px 0;
+	padding: 15px 0;
 }
 
 .bud-header-logo{
@@ -16,5 +16,65 @@
 
 .bud-content{
 	position: relative;
-	padding: 60px 0;
+	padding: 40px 0;
+	width: 100%;
+	background-color: #fff;
+}
+
+.bud-select-service{
+	width: 100%;
+	position: relative;
+	background: rgba(0, 0, 0, .03);
+	padding:  20px;
+	border-radius: 15px;
+	margin-bottom: 15px;
+}
+
+.bud-select-service>select{
+	width: 100%;
+	padding: 15px;
+	border-radius: 15px;
+	border: none;
+	outline: none;
+	text-transform: uppercase;
+	display: block;
+	margin: 0 auto;
+	box-shadow: 2px 4px 10px rgba(0,0,0,.3);
+}
+
+.bud-service-fields{
+	width: 100%;
+	padding: 20px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.field{
+	width: 80%;
+	margin-bottom: 15px;
+	padding: 15px 10px;
+	outline: none;
+	border: none;
+	box-shadow: -2px 1px 2px rgba(0,0,0,.3);
+	border-radius: 15px;
+}
+
+.generate-budget{
+	color: #fff;
+	padding: 15px;
+	background-color: #FF4E00;
+	text-transform: uppercase;
+	font-weight: 700;
+	border-radius: 15px;
+	transition:  all .2s linear;
+}
+
+.generate-budget:focus,
+.generate-budget:hover{
+	text-decoration: none;
+	background-color: #B83A02;
+	color: #fff;
 }
