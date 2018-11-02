@@ -4,8 +4,9 @@ var serviceBudgetSection_status = 0;
 
 // Set vars for validity of budget
 var nowDate = new Date();
+var months = [1,2,3,4,5,6,7,8,9,10,11,12];
 var setValidityDate = new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate());
-var validityOfBudget = setValidityDate.getDate(setValidityDate.setDate(nowDate.getDate()+2))+"/"+setValidityDate.getMonth()+"/"+setValidityDate.getFullYear();
+var validityOfBudget = setValidityDate.getDate(setValidityDate.setDate(nowDate.getDate()+2))+"/"+months[setValidityDate.getMonth()]+"/"+setValidityDate.getFullYear();
 
 // Start global functions
 function verify_serviceBudgetSectionStatus(){
