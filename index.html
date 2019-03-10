@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Luan Novais">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gerador de Orçamentos Luandev</title>
+    <link rel="stylesheet" href="assets/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <span class="badge badge-dark d-print-none">v1.0.0</span>
+        <span class="badge badge-info d-print-none" id="sysDate"></span>
+        <div class="d-flex justify-content-center align-items-center py-5 flex-wrap" id="generator">
+            <img src="assets/images/logo_luandev_2019_web_colorful.png" class="img-fluid" alt="Luandev" style="max-width: 150px;">
+            <h3 class="w-100 text-center text-primary text-uppercase pt-1">Gerar Orçamento - Cartões de Visita</h3>
+            <form method="POST" class="col-md-12 py-4 d-flex justify-content-center flex-wrap align-items-center" id="form_generator">
+                <!-- <div class="alert alert-danger col-md-12" id="error_message">
+                    Erro aqui.
+                </div> -->
+                <div class="form-group w-75 flex-wrap">
+                    <label for="">Nome do cliente:</label>
+                    <input autocomplete="off" type="text" class="form-control mb-3" name="" id="nome" required>
+
+                    <label for="">Quantidade de Cartões:</label>
+                    <input autocomplete="off" type="number" class="form-control mb-3" name="" id="qtd" required>
+
+                    <label for="">Entrega Prevista:</label>
+                    <input autocomplete="off" type="date" class="form-control mb-3" name="" id="entrega" required>
+
+                    <label for="">Total + Frete(Printi):</label>
+                    <input onkeyup="formatValue(this);" autocomplete="off" type="text" class="form-control mb-3" name="" id="tot" required>
+
+                    <label for="">Valor da Arte:</label>
+                    <input onkeyup="formatValue(this);" autocomplete="off" type="text" class="form-control mb-3" name="" id="valor_arte" required>
+
+                    <button type="submit" class="btn btn-primary">Gerar orçamento</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="d-none justify-content-center align-items-center py-5 flex-wrap" id="generated">
+            <img src="assets/images/logo_luandev_2019_web_colorful.png" class="img-fluid" alt="Luandev" style="max-width: 175px;">
+            <form class="col-md-12 py-4 d-flex justify-content-center">
+                <div class="form-group w-75 flex-wrap">
+                    <label for="">Cliente:</label>
+                    <input disabled type="text" class="form-control mb-3" name="" id="g_nome" value="">
+
+                    <label for="">Quantidade de Cartões:</label>
+                    <input disabled type="text" class="form-control mb-3" name="" id="g_qtd" value="">
+
+                    <label for="">Previsão de entrega:</label>
+                    <input disabled type="text" class="form-control mb-3" name="" id="g_entrega" value="">
+
+                    <label for="">Valor total:</label>
+                    <input disabled type="text" class="form-control mb-3" name="" id="g_total" value="">
+
+                    <div class="alert alert-warning">
+                        Este orçamento é válido somente até: <b id="g_validade">00/00/0000</b>
+                    </div>
+                </div>
+            </form>
+            <button onClick="resetGeneratorData();" class="btn btn-info d-print-none text-uppercase"><b>Gerar outro orçamento</b></button>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
