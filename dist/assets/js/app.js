@@ -75,6 +75,7 @@ function resetGeneratorData(){
     generatorData.tot.value = "";
     generatorData.art_value.value = "";
     generatorData.add_infos.innerHTML = "";
+    generatedData.add_infos.innerHTML = "";
     generatorData.container.classList.remove("d-none");
     generatorData.container.classList.add("d-flex");
     generatedData.container.classList.remove("d-flex");
