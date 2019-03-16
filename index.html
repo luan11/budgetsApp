@@ -12,8 +12,9 @@
 </head>
 <body>
     <div class="container">
-        <span class="badge badge-dark d-print-none">v1.0.1</span>
+        <span class="badge badge-dark d-print-none">v1.0.2</span>
         <span class="badge badge-info d-print-none" id="sysDate"></span>
+        <br><a href="javascript:void(0);" class="badge badge-success d-print-none d-none" id="g_print" onclick="window.print();">Imprimir</a>
         <div class="d-flex justify-content-center align-items-center py-5 flex-wrap" id="generator">
             <img src="assets/images/logo_luandev_2019_web_colorful.png" class="img-fluid" alt="Luandev" style="max-width: 150px;">
             <h3 class="w-100 text-center text-primary text-uppercase pt-1">Gerar Orçamento - Cartões de Visita</h3>
@@ -49,7 +50,14 @@
                         </ul>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Gerar orçamento</button>
+                    <button type="submit" class="btn btn-primary">Gerar orçamento</button>                  
+                    <div class="input-group shadow-sm w-50 mx-auto mt-3">  
+                        <label for="" class="w-100">Taxa de criação:</label>                 
+                        <input class="form-control" type="number" value="5" id="tot_rate">
+                        <div class="input-group-append">
+                            <div class="input-group-text">%</div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -59,24 +67,23 @@
             <form class="col-md-12 py-4 d-flex justify-content-center">
                 <div class="form-group w-75 flex-wrap">                   
                     <div class="alert alert-danger">
-                        Este orçamento é válido somente até: <b id="g_validade">00/00/0000</b>
+                        <p class="h5 m-0 text-center">Este orçamento é válido somente até: <b id="g_validade">00/00/0000</b></p>
                     </div>
 
                     <label for="">Cliente:</label>
-                    <input disabled type="text" class="form-control mb-3" name="" id="g_nome" value="">
+                    <input disabled type="text" class="form-control mb-3" style="font-size: 18px" name="" id="g_nome" value="">
 
                     <label for="">Quantidade de Cartões:</label>
-                    <input disabled type="text" class="form-control mb-3" name="" id="g_qtd" value="">
+                    <input disabled type="text" class="form-control mb-3" style="font-size: 18px" name="" id="g_qtd" value="">
 
                     <label for="">Previsão de entrega:</label>
-                    <input disabled type="text" class="form-control mb-3" name="" id="g_entrega" value="">
+                    <input disabled type="text" class="form-control mb-3" style="font-size: 18px" name="" id="g_entrega" value="">
 
                     <label for="">Valor total:</label>
-                    <input disabled type="text" class="form-control mb-3" name="" id="g_total" value="">
+                    <input disabled type="text" class="form-control mb-3" style="font-size: 18px" name="" id="g_total" value="">
 
-                    <h6 class="text-info">Informações Adicionais</h6>
                     <div class="alert alert-info" id="g_add_infos">
-                        
+                        <h6 class="text-info text-uppercase">Informações Adicionais</h6>
                     </div>
                 </div>
             </form>

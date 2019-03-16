@@ -20,10 +20,9 @@ var generatedData = {
     'add_infos': document.getElementById('g_add_infos')
 };
 
-var totPercent = 0.05;
-
 document.getElementById('form_generator').addEventListener('submit', (e) => {
     e.preventDefault();
+    var totPercent = parseInt(document.getElementById("tot_rate").value) / 100;
     var totalEnd = calcBudgetTot(sanitizeValue(generatorData.tot.value), sanitizeValue(generatorData.art_value.value), totPercent);
     var deliveryDate = dateHelper(generatorData.delivery_date.value);
     saveToPrint(generatorData.client_name.value, generatorData.qtd.value, deliveryDate, totalEnd, calcValidityDate(), generatorData.add_infos.innerHTML.replace(/d-none-here/g, 'd-none'));
@@ -35,14 +34,26 @@ function calcBudgetTot(printShopTot, artTot, percent){
     return "R$ " + Math.round(parseFloat(printShopTot) + parseFloat(artTot) + (parseFloat(printShopTot) + parseFloat(artTot)) * percent) + ",00";
 }
 
+var btnPrint = document.getElementById("g_print");
+
 function saveToPrint(cliNome, qtd, dataEntrega, tot, validade, addInfos){
-    document.title = 'Orçamento para ' + cliNome + "_" + qtd +"un";
+    btnPrint.classList.remove("d-none");
+    btnPrint.classList.add("d-inline");
+
+    var docTitle = "Orçamento para " + cliNome + "_" + qtd +"unid";
+    document.title = docTitle.toLowerCase();
     generatedData.client_name.value = cliNome;
-    generatedData.qtd.value = qtd + "un";
+    generatedData.qtd.value = qtd + " unidades";
     generatedData.delivery_date.value = dataEntrega;
     generatedData.tot.value = tot;
     generatedData.validity.innerText = validade;
-    generatedData.add_infos.innerHTML += addInfos;
+
+    if(addInfos.indexOf("<li>") !== -1){
+        generatedData.add_infos.innerHTML += addInfos;
+    }else{
+        generatedData.add_infos.remove();
+    }
+
     generatedData.container.classList.remove("d-none");
     generatedData.container.classList.add("d-flex");
     setTimeout(() => {
@@ -63,11 +74,15 @@ function formatDate(date){
 
 function calcValidityDate(){
     var now = new Date();
-    now.setDate(now.getDate() + 1);
+    var additionalDayValidity = now.getDay() == 6 ? 2 : 1;
+    now.setDate(now.getDate() + additionalDayValidity);
     return formatDate(now);
 }
 
 function resetGeneratorData(){
+    btnPrint.classList.remove("d-inline");
+    btnPrint.classList.add("d-none");
+
     document.title = 'Gerar Orçamento - Cartões de Visita';
     generatorData.client_name.value = "";
     generatorData.qtd.value = "";
