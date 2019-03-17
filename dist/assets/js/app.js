@@ -80,6 +80,8 @@ function calcValidityDate(){
 }
 
 function resetGeneratorData(){
+    document.getElementById("tot_rate").value = "5";
+
     btnPrint.classList.remove("d-inline");
     btnPrint.classList.add("d-none");
 
